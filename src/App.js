@@ -1,8 +1,18 @@
 import React from 'react';
 
+function Food({ favorite }){
+  return <h1>I like {favorite}</h1>;
+}
+
 function App() {
   return (
-    <div>hello!!!</div>
+    <div>
+      <h1>Hello</h1>
+      <Food favorite="kimchi" />
+      <Food favorite="rice" />
+      <Food favorite="pork valley" />
+      <Food favorite="steak" />
+    </div>
   );
 }
 
