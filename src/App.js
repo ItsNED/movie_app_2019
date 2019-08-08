@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 const food_list = [
   {
@@ -38,23 +39,30 @@ const food_list = [
   }
 ];
 
-function Food({name, image}){
+function Food({name, image, rating}){
   return (
     <div>
-      <h1>I like {name}</h1>
+      <h2>I like {name}</h2>
+      <h4>{rating}/5.0</h4>
       <img src={image} alt={name}/>
+      {/* <span>{rating}</span> */}
     </div>
   );
 }
 
+Food.propTypes ={
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired
+};
+
+
 function App() {
   return (
     <div>
-      {/* {food_list.map((food, index) => <Food name={food.name} image={food.image}  key={index}></Food>)} */}
+      {food_list.map((food, index) => 
+        <Food name={food.name} image={food.image} rating={food.rating} key={food.id}></Food>)}
       {/* {food_list.map((food, index) => <Food {...food} key={index}></Food>)} */}
-      {food_list.map(food => (
-        <Food {...food} key={food.id} />
-      ))}
     </div>
   );
 }
